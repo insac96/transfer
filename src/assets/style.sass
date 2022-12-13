@@ -1,0 +1,61 @@
+
+*
+  margin: 0
+  padding: 0
+  border: none
+  outline: none
+  box-sizing: border-box
+  -webkit-tap-highlight-color: transparent !important
+
+html
+  font-size: 16px
+    
+body
+  font-family: 'Open Sans', sans-serif
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  font-size: 0.95rem
+  background: #ffffff
+  color: #000000
+
+input, button, textarea
+  font-family: 'Open Sans', sans-serif
+
+textarea::-webkit-scrollbar
+  display: none
+textarea
+  resize: none
+
+button
+  cursor: pointer
+
+@keyframes rotate
+  0%
+    transform: rotate(0)
+  100%
+    transform: rotate(360deg)
+
+@keyframes show 
+  0% 
+    opacity: 0
+  
+  100% 
+    opacity: 1
+
+@keyframes down 
+  0% 
+    opacity: 0
+    transform: translateY(-50px)
+  
+  100% 
+    opacity: 1
+    transform: translateY(0)
+
+@keyframes up 
+  0% 
+    opacity: 0
+    transform: translateY(100%)
+  
+  100% 
+    opacity: 1
+    transform: translateY(0)

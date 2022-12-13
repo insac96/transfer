@@ -1,0 +1,76 @@
+.Techcombank
+  font-family: Arial, Helvetica, sans-serif
+  position: relative
+  display: flex
+  flex-direction: column
+  width: 100%
+  height: 100vh
+  padding: 24px
+  background: #ffffff
+  color: #000000
+
+  &::before
+    content: ''
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    background: #ffffff
+    z-index: -1
+  
+  .Header
+    display: flex
+    flex-direction: column
+    justify-content: flex-end
+    width: 100%
+    height: 200px
+    margin-bottom: 3px
+    img:first-child
+      margin-bottom: 20px
+
+  .Content
+    flex-grow: 1
+    padding: 4px
+
+    &__Info
+      font-size: 1.85rem
+      font-weight: 500
+      margin-bottom: 25px
+      p
+        letter-spacing: -1px
+        margin-bottom: 2px
+        transform: scaleY(1)
+      p:last-child
+        margin-bottom: 0
+        
+
+    &__Box
+      margin-bottom: 20px
+      &:last-child
+        margin-bottom: 0
+      p
+        font-size: 0.97rem
+        font-weight: 410
+        color: #515151
+        margin-bottom: 7px
+      span
+        font-size: 1.15rem
+        font-weight: 500
+
+  .Footer
+    button
+      width: 100%
+      line-height: 56px
+      border-radius: 30px
+      background: #000000
+      color: #ffffff
+      font-weight: 600
+      font-size: 1.05rem
+      margin-bottom: 18px
+
+      &:last-child
+        background: none
+        color: #000000
+        border: 1px solid #000000
+        margin-bottom: 0
