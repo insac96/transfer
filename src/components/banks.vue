@@ -82,9 +82,10 @@ export default {
 		max-height: 300px
 		overflow: auto
 		z-index: 1
-		background: #202028
+		background: #ffffff
 		border-radius: 12px
 		padding: 5px
+		box-shadow: 0px 0px 20px -10px rgba(0, 0, 0, 0.8)
 		&__Item
 			font-size: 0.85rem
 			padding: 10px

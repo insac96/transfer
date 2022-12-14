@@ -31,7 +31,7 @@ export default new Vuex.Store({
       state.source = data.source
       state.money = data.money
       state.person = data.person
-      state.about = !!data.about ? data.about : 'CK'
+      state.about = !!data.about ? data.about : 'Chuyen khoan'
       state.time = data.time
       state.code = data.code
     },

@@ -7,83 +7,83 @@
       'background-size': 'cover',
       'background-repeat': 'no-repeat'
     }">
-      <div class="Title">Giao dịch chuyển khoản</div>
+      <img :src="require('@/assets/mb/done.png')" width="45px">
+      <div class="Title">Bạn đã chuyển khoản thành công</div>
+      <div class="Money">{{ money }} VND</div>
+
+      <button @click="clone">Chia sẻ</button>
 
       <div class="Info">
-        <div class="Info__Icon" @click="clone">
-          <i class='bx bx-check'></i>
+        <div class="Info__Title">Đến tài khoản</div>
+
+        <div class="Info__Content">
+          <div class="Info__Content__Left">
+            <img :src="`/img/banks/${DataTransfer.person.bank.icon}.png`" width="30px">
+          </div>
+
+          <div class="Info__Content__Right">
+            <div class="Info__Content__Right__Name">{{ DataTransfer.person.name }}</div>
+            <div class="Info__Content__Right__STK">{{ DataTransfer.person.stk }}</div>
+            <div class="Info__Content__Right__Bank">
+              {{ DataTransfer.person.bank.vn_name }} ({{DataTransfer.person.bank.shortName}})
+            </div>
+          </div>
         </div>
-        <div class="Info__Text">Giao dịch thành công</div>
       </div>
     </div>
 
-		<!--Content-->
-    <div class="Content">
-      <!--Saw-->
-      <div class="Content__Saw">
-        <svg
-          width="100%"
-          height="10"
-          xmlns="http://www.w3.org/2000/svg"
-          version="1.1"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          class="sawEdge"  
-        >
-          <defs>
-            <pattern id="sawPattern" x="50%" width="20" height="10" patternUnits="userSpaceOnUse">
-              <path d="M 0 0 L 10 10 L 20 0 Z"/>
-            </pattern>
-          </defs>
-          <rect x="0" y="0" width="100%" height="10" fill="url(#sawPattern)"/>
-        </svg>
-      </div>
-        
-      <!--Time-->
-      <div class="Content__Box">
-        <p>Ngày giao dịch</p>
-        <span>{{ DataTransfer.time.d }}, {{ DataTransfer.time.t }}</span>
+    <!--Content-->
+    <div class="Body">
+      <div class="Content">
+
+        <div class="Box">
+          <span>Tài khoản nguồn</span>
+          <div>
+            <p>{{personTo.stk}}</p>
+            <p style="font-weight: bold">{{personTo.name}}</p>
+          </div>
+        </div>
+
+        <div class="Box">
+          <span>Nội dung</span>
+          <div>
+            <p>{{personTo.name}}</p>
+            <p>chuyen khoan</p>
+          </div>
+        </div>
+
+        <div class="Box">
+          <span>Thời gian</span>
+          <p>{{ DataTransfer.time.t }}, {{ DataTransfer.time.d }}</p>
+        </div>
+
+        <div class="Box">
+          <span>Hình thức chuyển</span>
+          <p>Chuyển nhanh Napas 247</p>
+        </div>
+
+        <div class="Box">
+          <span>Mã giao dịch</span>
+          <p>{{ `FT2234${!!DataTransfer.code ? DataTransfer.code : '733359827'}` }}</p>
+        </div>
       </div>
 
-      <!--Name-->
-      <div class="Content__Box">
-        <p>Chuyển khoản đến</p>
-        <span style="text-transform: uppercase">{{ DataTransfer.person.name }}</span>
+      <div class="Control">
+        <div>
+          <img :src="require('@/assets/mb/acc.png')" width="18px">
+          Lưu người hưởng thụ
+        </div>
+
+        <div @click="clone">
+          <img :src="require('@/assets/mb/save.png')" width="18px">
+          Lưu mẫu giao dịch
+        </div>
       </div>
 
-      <!--STK-->
-      <div class="Content__Box">
-        <p>Số tài khoản</p>
-        <span>{{ DataTransfer.person.stk }}</span>
+      <div class="Footer">
+        <button @click="close">Về trang chủ</button>
+        <button @click="$router.push('/')">Tạo giao dịch khác</button>
       </div>
-
-      <!--Bank-->
-      <div class="Content__Box">
-        <p>Ngân hàng</p>
-        <span>{{ DataTransfer.person.bank.vn_name }} ({{DataTransfer.person.bank.shortName}})</span>
-      </div>
-
-      <!--Money-->
-      <div class="Content__Box">
-        <p>Tổng số tiền</p>
-        <span>{{ DataTransfer.money.toLocaleString('vi-VN') }}</span>
-      </div>
-
-      <!--Money Text-->
-      <div class="Content__Box">
-        <p>Bằng chữ</p>
-        <span>{{ new $util.numberToText(DataTransfer.money, 'Việt Nam đồng').text }}</span>
-      </div>
-
-      <!--About-->
-      <div class="Content__Box">
-        <p>Nội dung chuyển khoản</p>
-        <span>{{ DataTransfer.about }}</span>
-      </div>
-    </div>
-
-    <!--Footer-->
-    <div class="Footer">
-      <button @click="close()">Hoàn thành</button>
     </div>
 	</div>
 </template>
@@ -96,6 +96,15 @@ export default {
     DataTransfer () {
       return this.$store.getters.getData
     },
+    money () {
+      return String(this.DataTransfer.money.toLocaleString('vi-VN')).replace('.', ',')
+    },
+    personTo () {
+      return {
+        name: 'PHAM TRUNG VU',
+        stk: 9888109377777
+      }
+    }
   },
 
   created () {

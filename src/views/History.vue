@@ -113,6 +113,6 @@ export default {
             min-width: 200px
             padding: 12px
             border-radius: 12px
-            background: #29c49a
+            background: #142ee8
             color: #ffffff   
 </style>

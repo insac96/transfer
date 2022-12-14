@@ -137,8 +137,8 @@ export default {
 				background: none
 				color: #64626d
 				&:disabled
-					border: 1px solid #29c49a
-					color: #29c49a
+					border: 1px solid #142ee8
+					color: #142ee8
 					pointer-events: none
 					user-select: none
 					
@@ -161,7 +161,7 @@ export default {
 			padding: 12px
 			border-radius: 12px
 			font-size: 0.95rem
-			background: #29c49a
+			background: #142ee8
 			color: #ffffff
 
 	.Footer
@@ -172,6 +172,6 @@ export default {
 			min-width: 200px
 			padding: 12px
 			border-radius: 12px
-			background: #29c49a
+			background: #142ee8
 			color: #ffffff
 </style>
