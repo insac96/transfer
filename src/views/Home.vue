@@ -63,7 +63,7 @@ export default {
 
 	created () {
 		this.$meta.changeTitle('Transfer')
-		this.$meta.changeColor('#101010')
+		this.$meta.changeColor('#ffffff')
 	},
 
 	mounted () {
@@ -118,6 +118,7 @@ export default {
 	padding: 16px
 
 	.Header
+		user-select: none
 		.Title
 			font-size: 1.6rem
 			font-weight: 600
@@ -128,7 +129,6 @@ export default {
 			margin: 24px 0
 			display: flex
 			justify-content: center
-
 			button
 				padding: 12px
 				margin: 0 3px
@@ -140,7 +140,6 @@ export default {
 					border: 1px solid #142ee8
 					color: #142ee8
 					pointer-events: none
-					user-select: none
 					
 	.Content
 		flex-grow: 1
@@ -172,6 +171,7 @@ export default {
 			min-width: 200px
 			padding: 12px
 			border-radius: 12px
-			background: #142ee8
-			color: #ffffff
+			background: none
+			color: #142ee8
+			border: 1px solid #142ee8
 </style>

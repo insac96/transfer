@@ -2,7 +2,7 @@
     <div class="Historys">
         <!--Header-->
         <div class="Header">
-            <div class="Title">Hoạt động</div>
+            <div class="Title" @click="reset">Hoạt động</div>
             <div class="Info">Lich sử biến động gần đây</div>
         </div>
 
@@ -20,11 +20,6 @@
                 </div>
             </div>
         </div>
-
-        <!--Footer-->
-		<div class="Footer">
-			<button @click="reset">Xóa tất cả</button>
-		</div>
     </div>
 </template>
 
@@ -42,7 +37,7 @@ export default {
 
     created () {
         this.$meta.changeTitle('History')
-		this.$meta.changeColor('#101010')
+		this.$meta.changeColor('#ffffff')
 	},
 
     methods: {
@@ -65,9 +60,11 @@ export default {
     padding: 16px
 
     .Header
+        user-select: none
         .Title
             font-size: 1.6rem
             font-weight: 600
+            cursor: pointer
         .Info
             font-size: 0,8rem
             color: #999
@@ -103,16 +100,5 @@ export default {
                 p
                     color: red
                 span
-                    color: gray    
-
-    .Footer
-        display: flex
-        justify-content: center
-
-        button
-            min-width: 200px
-            padding: 12px
-            border-radius: 12px
-            background: #142ee8
-            color: #ffffff   
+                    color: gray 
 </style>

@@ -12,62 +12,69 @@
       <div class="Money">{{ money }} VND</div>
 
       <button @click="clone">Chia sẻ</button>
+    </div>
 
-      <div class="Info">
-        <div class="Info__Title">Đến tài khoản</div>
+    <!--Body-->
+    <div class="Body">
+      <!--Person To-->
+      <div class="To">
+        <div class="To__Title">Đến tài khoản</div>
 
-        <div class="Info__Content">
-          <div class="Info__Content__Left">
+        <div class="To__Content">
+          <div class="To__Content__Left">
             <img :src="`/img/banks/${DataTransfer.person.bank.icon}.png`" width="30px">
           </div>
 
-          <div class="Info__Content__Right">
-            <div class="Info__Content__Right__Name">{{ DataTransfer.person.name }}</div>
-            <div class="Info__Content__Right__STK">{{ DataTransfer.person.stk }}</div>
-            <div class="Info__Content__Right__Bank">
+          <div class="To__Content__Right">
+            <div class="To__Content__Right__Name">{{ DataTransfer.person.name }}</div>
+            <div class="To__Content__Right__STK">{{ DataTransfer.person.stk }}</div>
+            <div class="To__Content__Right__Bank">
               {{ DataTransfer.person.bank.vn_name }} ({{DataTransfer.person.bank.shortName}})
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!--Content-->
-    <div class="Body">
+      <!--Content-->
       <div class="Content">
-
+        <!--Person To-->
         <div class="Box">
           <span>Tài khoản nguồn</span>
           <div>
-            <p>{{personTo.stk}}</p>
-            <p style="font-weight: bold">{{personTo.name}}</p>
+            <p>{{ personFrom.stk }}</p>
+            <p style="font-weight: bold">{{ personFrom.name }}</p>
           </div>
         </div>
 
+        <!--About-->
         <div class="Box">
           <span>Nội dung</span>
           <div>
-            <p>{{personTo.name}}</p>
-            <p>chuyen khoan</p>
+            <p>{{ personFrom.name }}</p>
+            <p>chuyển khoản</p>
           </div>
         </div>
 
+        <!--Time-->
         <div class="Box">
           <span>Thời gian</span>
           <p>{{ DataTransfer.time.t }}, {{ DataTransfer.time.d }}</p>
         </div>
 
+        <!--Hinh Thuc-->
         <div class="Box">
           <span>Hình thức chuyển</span>
           <p>Chuyển nhanh Napas 247</p>
         </div>
 
+        <!--COde-->
         <div class="Box">
           <span>Mã giao dịch</span>
           <p>{{ `FT2234${!!DataTransfer.code ? DataTransfer.code : '733359827'}` }}</p>
         </div>
       </div>
 
+      <!--Control-->
       <div class="Control">
         <div>
           <img :src="require('@/assets/mb/acc.png')" width="18px">
@@ -80,6 +87,7 @@
         </div>
       </div>
 
+      <!--Footer-->
       <div class="Footer">
         <button @click="close">Về trang chủ</button>
         <button @click="$router.push('/')">Tạo giao dịch khác</button>
@@ -99,9 +107,9 @@ export default {
     money () {
       return String(this.DataTransfer.money.toLocaleString('vi-VN')).replace('.', ',')
     },
-    personTo () {
+    personFrom () {
       return {
-        name: 'PHAM TRUNG VU',
+        name: 'TRAN TUAN ANH',
         stk: 9888109377777
       }
     }
