@@ -17,7 +17,7 @@
       <div class="Content__Info">
         <p>Chuyển thành công</p>
         <p>tới <span style="text-transform: uppercase">{{ DataTransfer.person.name }}</span></p>
-        <p>VND {{ DataTransfer.money.toLocaleString('vi-VN') }}</p>
+        <p>VND {{ money }}</p>
       </div>
 
       <!--Bank-->
@@ -62,6 +62,9 @@ export default {
   computed: {
     DataTransfer () {
       return this.$store.getters.getData
+    },
+    money () {
+      return String(this.DataTransfer.money.toLocaleString('vi-VN')).replace('.', ',')
     },
   },
 
