@@ -105,7 +105,7 @@ export default {
       return this.$store.getters.getData
     },
     money () {
-      return String(this.DataTransfer.money.toLocaleString('vi-VN')).replace('.', ',')
+      return String(this.DataTransfer.money.toLocaleString('vi-VN')).replaceAll('.', ',')
     },
     personFrom () {
       return {
