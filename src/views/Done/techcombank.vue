@@ -64,11 +64,7 @@ export default {
       return this.$store.getters.getData
     },
     money () {
-<<<<<<< HEAD
       return String(this.DataTransfer.money.toLocaleString('vi-VN')).replaceAll('.', ',')
-=======
-      return String(this.DataTransfer.money.toLocaleString('vi-VN')).replace('.', ',')
->>>>>>> 6234e729c0c2caa8f337bfbeb5f6c5014187b0ea
     },
   },
 
